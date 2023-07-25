@@ -1,0 +1,43 @@
+#root {
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.card-content {
+  background-color: aliceblue;
+  width: 90%;
+  margin: 0 auto;
+  min-height: 500px;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.poke-name {
+  color: #000;
+}
+.poke-img {
+  width: 150px;
+  height: 150px;
+}
+.poke-type {
+  color: #000;
+}
+.card-btn {
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  border: 0;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+}
+.card-btn:hover {
+  background-color: #000000a2;
+}
+
+.btn-reset {
+  padding: 0.5rem 2rem;
+  border-radius: 1rem;
+  border: 0;
+  cursor: pointer;
+}
