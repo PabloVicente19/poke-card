@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./card.css";
 
 export default function PokeCard() {
-  const ids = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const ids = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const apiCall = async (id) => {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
@@ -12,7 +12,6 @@ export default function PokeCard() {
 
   const [data, setData] = useState(null);
   const [index, setIndex] = useState(0);
-  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -23,7 +22,6 @@ export default function PokeCard() {
       })
       .catch((err) => {
         setLoading(true);
-        // setError(err);
       });
   }, [index]);
 
@@ -34,14 +32,7 @@ export default function PokeCard() {
   if (loading) {
     return <p>Cargando...</p>;
   }
-  if (error) {
-    return (
-      <>
-        {error}
-        <button onClick={handleIndex}>Siguiente</button>
-      </>
-    );
-  }
+
   return (
     <>
       {index === ids.length - 1 ? (
@@ -60,7 +51,12 @@ export default function PokeCard() {
         <div className="card-content">
           <h2 className="poke-name">{data.name}</h2>
           <img className="poke-img" src={data.sprites.front_default} />
-
+          <ul className="poke-type-list">
+            {" "}
+            {data.types.map((tipo) => {
+              return <li className="poke-type">{tipo.type.name}</li>;
+            })}
+          </ul>
           <button className="card-btn" onClick={handleIndex}>
             siguiente
           </button>

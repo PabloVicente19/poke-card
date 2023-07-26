@@ -5,6 +5,7 @@
 .card-content {
   background-color: aliceblue;
   width: 90%;
+  max-width: 800px;
   margin: 0 auto;
   min-height: 500px;
   border-radius: 2rem;
@@ -15,13 +16,20 @@
 }
 .poke-name {
   color: #000;
+  text-transform: capitalize;
+  font-family: "Helvetica";
 }
 .poke-img {
   width: 150px;
   height: 150px;
 }
-.poke-type {
+.poke-type-list {
+  padding: 0;
   color: #000;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 }
 .card-btn {
   padding: 0.5rem 2rem;
